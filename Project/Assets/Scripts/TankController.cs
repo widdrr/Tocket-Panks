@@ -26,18 +26,27 @@ public class TankController : MonoBehaviour
     [SerializeField]
     private Transform _firingPoint;
 
-    private void Awake()
-    {
-        SetTurret();
-    }
+    [SerializeField]
+    private Projectile _weapon;
 
     private void Update()
     {
         SetTurret();
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Shoot();
+        }
     }
 
     private void SetTurret()
     {
         _head.rotation = Quaternion.Euler(0f, 0f, _angle);
+    }
+
+    public void Shoot()
+    {
+        var projectile = Instantiate(_weapon, _firingPoint.position, Quaternion.identity);
+        projectile.transform.up = _firingPoint.right;
+        projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.up * _power / 5;
     }
 }
