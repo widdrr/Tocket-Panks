@@ -3,11 +3,15 @@ using UnityEngine;
 [RequireComponent (typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
 {
+    private Rigidbody2D _rigidbody;
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
-        var rigidbody = GetComponent<Rigidbody2D>();
-        transform.up = rigidbody.velocity.normalized;
+        transform.up = _rigidbody.velocity.normalized;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
