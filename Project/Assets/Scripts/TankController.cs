@@ -3,12 +3,12 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
     [SerializeField]
-    [Range(-180f, 180f)]
+    [Range(0f, 360f)]
     private float _angle;
     public float Angle
     {
         get { return _angle; }
-        set { _angle = Mathf.Clamp(value, -180f, 180f); }
+        set { _angle = Mathf.Repeat(value, 360f); }
     }
 
     [SerializeField]
