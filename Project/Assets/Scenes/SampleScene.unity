@@ -430,6 +430,10 @@ PrefabInstance:
       propertyPath: _power
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 5206053250062446733, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 1766037753}
     - target: {fileID: 6041631709731897282, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
       propertyPath: m_SortingOrder
       value: 0
@@ -525,93 +529,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
       insertIndex: -1
       addedObject: {fileID: 581268682}
-    - targetCorrespondingSourceObject: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 581268681}
   m_SourcePrefab: {fileID: 100100000, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
 --- !u!1 &581268680 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
   m_PrefabInstance: {fileID: 581268679}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &581268681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581268680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: facb51b1551e4f740b7085c7fbec1d0a, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 581268682}
-        m_TargetAssemblyTypeName: ManualController, Assembly-CSharp
-        m_MethodName: HandleAngle
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: fe3c9876-aff9-4a29-a74d-80c1973e63d3
-    m_ActionName: Game/AngleControl[/Keyboard/rightArrow,/Keyboard/leftArrow]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 581268682}
-        m_TargetAssemblyTypeName: ManualController, Assembly-CSharp
-        m_MethodName: HandlePower
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 2d3def08-de73-4fb7-af7e-66ada9c1fef4
-    m_ActionName: Game/PowerControl[/Keyboard/downArrow,/Keyboard/upArrow]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 581268682}
-        m_TargetAssemblyTypeName: ManualController, Assembly-CSharp
-        m_MethodName: HandleFire
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 261e96f1-d31d-40af-a4c6-6c83aad5cf5e
-    m_ActionName: Game/Fire[/Keyboard/space]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Game
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &581268682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,6 +799,10 @@ PrefabInstance:
       propertyPath: _power
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 5206053250062446733, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 1766037753}
     - target: {fileID: 6172285809933618661, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
       propertyPath: m_Color.b
       value: 0.6431373
@@ -947,8 +874,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 996304285}
   m_SourcePrefab: {fileID: 100100000, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+--- !u!1 &996304280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+  m_PrefabInstance: {fileID: 895262496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &996304283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5206053250062446733, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+  m_PrefabInstance: {fileID: 895262496}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996304280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b225013f02d3a944a6abe0925eb340b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &996304285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996304280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6c8cb84b999c94eae1ddd32bbecbb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tank: {fileID: 996304283}
 --- !u!1 &1127159525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1029,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1766037752}
+  - component: {fileID: 1766037753}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1092,6 +1052,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1766037753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766037751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a1d7e32c073044180caf7741d09dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player1: {fileID: 581268682}
+  _player2: {fileID: 996304285}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
