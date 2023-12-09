@@ -330,10 +330,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9049761895132051113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 699f999aa9b07b140b05845bbef5d504, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b225013f02d3a944a6abe0925eb340b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _angle: -20
+  _angle: 0
   _power: 0
   _head: {fileID: 9097081413367006816}
   _firingPoint: {fileID: 904066630003923504}
