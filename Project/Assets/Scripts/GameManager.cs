@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
 
             case GameState.Shot:
                 _state = _nextTurn;
-                //This is ugly but I can't be bothered about it now
                 if(_state == GameState.Player1Turn) _player1.enabled = true;
                 else _player2.enabled = true;
                 break;
