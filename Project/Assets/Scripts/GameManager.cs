@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void GameEnd()
     {
+        //We will determine exactly what to do here once we integrate with UnityML
         Debug.Log("It's Joever");
         Debug.Log(_player1Score.Score);
         Debug.Log(_player2Score.Score);
