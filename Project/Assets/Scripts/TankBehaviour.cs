@@ -32,6 +32,13 @@ public class TankBehaviour : MonoBehaviour
     [SerializeField]
     private GameManager _gameManager;
 
+    private TankScore _tankScore;
+
+    private void Awake()
+    {
+        _tankScore = GetComponent<TankScore>();
+    }
+
     private void Update()
     {
         SetTurret();
@@ -47,9 +54,14 @@ public class TankBehaviour : MonoBehaviour
         _gameManager.ChangeTurn();
 
         var projectile = Instantiate(_weapon, _firingPoint.position, Quaternion.identity);
- 
+
+        projectile.owner = this;
         projectile.transform.up = _firingPoint.right;
-        projectile.onHit += _gameManager.ChangeTurn;       
+        projectile.onHit += _tankScore.AddScore;
+        projectile.onHit += ChangeTurnDelegate;       
         projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.up * _power / 5;
     }
+
+    private void ChangeTurnDelegate(Collider2D other) => _gameManager.ChangeTurn();
+
 }

@@ -518,8 +518,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8358206413272432152, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: _opponentTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
       propertyPath: m_Name
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_TagString
       value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -867,8 +875,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8358206413272432152, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: _selfTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
       propertyPath: m_Name
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_TagString
       value: Player2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1064,8 +1080,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a1d7e32c073044180caf7741d09dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player1: {fileID: 581268682}
-  _player2: {fileID: 996304285}
+  _player1: {fileID: 581268680}
+  _player2: {fileID: 996304280}
+  _rounds: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
