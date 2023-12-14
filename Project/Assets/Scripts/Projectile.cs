@@ -5,7 +5,9 @@ public class Projectile : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
 
-    public delegate void OnHit();
+    public TankBehaviour owner;
+
+    public delegate void OnHit(Collider2D other);
 
     public OnHit onHit;
     private void Awake()
@@ -19,7 +21,7 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        onHit();
+        onHit(other);
         Destroy(gameObject);
     }
 }
