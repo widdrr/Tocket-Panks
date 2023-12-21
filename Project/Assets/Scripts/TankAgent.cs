@@ -4,38 +4,23 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
-public class TankAgent : Agent
+public class TankAgent : Agent, ITankController
 {
     [SerializeField] private TankBehaviour _tank;
     [SerializeField] private Transform _target;
-    [SerializeField] private GameManager _gameManager;
-    [SerializeField] private GameState _decisionTurn;
+
+    public TankBehaviour TankBehaviour { get => _tank; }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        _tank.OnHit = other =>
+        _tank.OnProjectileHit += other =>
         {
             var dist = Vector3.Distance(other.transform.position, _target.position);
             Debug.Log(dist + " " + _tank.gameObject.name);
             SetReward(-dist);
-            EndEpisode();
+            EndTurn();
         };
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (_gameManager.State == _decisionTurn)
-        {
-            RequestDecision();
-            Debug.Log("Request decision " + _decisionTurn);
-        }
-
-        // if (_gameManager.State == GameState.Over)
-        // {
-        //
-        // }
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -53,6 +38,7 @@ public class TankAgent : Agent
         _tank.Angle = actions.ContinuousActions[0] * 360f;
         _tank.Power = actions.ContinuousActions[1] * 100f;
 
+        // System.Threading.Thread.Sleep(500);
         _tank.Shoot();
     }
 
@@ -66,6 +52,15 @@ public class TankAgent : Agent
     public override void OnEpisodeBegin()
     {
         base.OnEpisodeBegin();
-        Debug.Log("Episode begin");
+    }
+
+    public void StartTurn()
+    {
+        RequestDecision();
+    }
+
+    public void EndTurn()
+    {
+        EndEpisode();
     }
 }

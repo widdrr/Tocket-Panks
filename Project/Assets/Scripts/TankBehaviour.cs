@@ -18,24 +18,17 @@ public class TankBehaviour : MonoBehaviour
         set { _power = Mathf.Clamp(value, 0, 100); }
     }
 
+    public delegate void OnShotFired();
     public delegate void OnShotLanded(Collider2D other);
 
-    public OnShotLanded OnHit;
+    public OnShotFired OnProjectileFired;
+    public OnShotLanded OnProjectileHit;
 
     [SerializeField] private Transform _head;
 
     [SerializeField] private Transform _firingPoint;
 
     [SerializeField] private Projectile _weapon;
-
-    [SerializeField] private GameManager _gameManager;
-
-    private TankScore _tankScore;
-
-    private void Awake()
-    {
-        _tankScore = GetComponent<TankScore>();
-    }
 
     private void Update()
     {
@@ -49,17 +42,13 @@ public class TankBehaviour : MonoBehaviour
 
     public void Shoot()
     {
-        _gameManager.ChangeTurn();
+        OnProjectileFired();
 
         var projectile = Instantiate(_weapon, _firingPoint.position, Quaternion.identity);
 
         projectile.owner = this;
         projectile.transform.up = _firingPoint.right;
-        projectile.onHit += _tankScore.AddScore;
-        projectile.onHit += ChangeTurnDelegate;
-        projectile.onHit += other => OnHit(other);
+        projectile.onHit += other => OnProjectileHit(other);
         projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.up * _power / 5;
     }
-
-    private void ChangeTurnDelegate(Collider2D other) => _gameManager.ChangeTurn();
 }

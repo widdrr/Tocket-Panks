@@ -11,11 +11,11 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject _player1;
-    private TankController _player1Controller;
+    private ITankController _player1Controller;
     private TankScore _player1Score;
 
     [SerializeField] private GameObject _player2;
-    private TankController _player2Controller;
+    private ITankController _player2Controller;
     private TankScore _player2Score;
 
     [SerializeField] private int _rounds;
@@ -23,52 +23,70 @@ public class GameManager : MonoBehaviour
 
     public GameState _state;
 
-    public GameState State => _state;
-
     private GameState _nextTurn;
 
     private void Awake()
     {
-        _player1Controller = _player1.GetComponent<TankController>();
-        _player2Controller = _player2.GetComponent<TankController>();
+        _player1Controller = _player1.GetComponent<ITankController>();
+        _player2Controller = _player2.GetComponent<ITankController>();
 
         _player1Score = _player1.GetComponent<TankScore>();
         _player2Score = _player2.GetComponent<TankScore>();
 
         _state = GameState.Player1Turn;
-        _player2Controller.enabled = false;
+        _player1Controller.StartTurn();
+
+        _player1Controller.TankBehaviour.OnProjectileFired += ChangeState;
+        _player2Controller.TankBehaviour.OnProjectileFired += ChangeState;
+
+        _player1Controller.TankBehaviour.OnProjectileHit += _ => ChangeState();
+        _player2Controller.TankBehaviour.OnProjectileHit += _ => ChangeState();
     }
 
-    public void ChangeTurn()
+    private readonly object lockkk = new object();
+
+    public void ChangeState()
     {
-        switch (_state)
+        lock (this)
         {
-            case GameState.Player1Turn:
-                _nextTurn = GameState.Player2Turn;
-                _state = GameState.Shot;
-                _player1Controller.enabled = false;
-                break;
-
-            case GameState.Player2Turn:
-                _nextTurn = GameState.Player1Turn;
-                _state = GameState.Shot;
-                _player2Controller.enabled = false;
-                break;
-
-            case GameState.Shot:
-                ++_currentTurn;
-                if (_currentTurn == 2 * _rounds)
-                {
-                    _state = GameState.Over;
-                    GameEnd();
+            var oldState = _state;
+            switch (_state) {
+                case GameState.Player1Turn:
+                    _nextTurn = GameState.Player2Turn;
+                    _state = GameState.Shot;
+                    // _player1Controller.EndTurn();
+                    // (_player2Controller as TankAgent).enabled = false;
                     break;
-                }
 
-                _state = _nextTurn;
-                if (_state == GameState.Player1Turn) _player1Controller.enabled = true;
-                else _player2Controller.enabled = true;
-                break;
+                case GameState.Player2Turn:
+                    _nextTurn = GameState.Player1Turn;
+                    _state = GameState.Shot;
+                    // _player2Controller.EndTurn();
+                    // (_player1Controller as TankAgent).enabled = false;
+                    break;
+
+                case GameState.Shot:
+                    ++_currentTurn;
+                    if (_currentTurn == 2 * _rounds) {
+                        _state = GameState.Over;
+                        GameEnd();
+                        break;
+                    }
+
+                    _state = _nextTurn;
+                    if (_state == GameState.Player1Turn) {
+                        // (_player1Controller as TankAgent).enabled = true;
+                        _player1Controller.StartTurn();
+                    }
+                    else {
+                        // (_player2Controller as TankAgent).enabled = true;
+                        _player2Controller.StartTurn();
+                    }
+
+                    break;
+            }
         }
+        // Debug.Log($"{oldState} -> {_state}");
     }
 
     public void GameEnd()

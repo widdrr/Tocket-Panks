@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public enum PlayerTags
@@ -11,10 +12,18 @@ public class TankScore : MonoBehaviour
     public int Score { get; private set; }
 
     [SerializeField]
+    private TankBehaviour _tank;
+
+    [SerializeField]
     private PlayerTags _selfTag;
 
     [SerializeField]
     private PlayerTags _opponentTag;
+
+    private void Awake()
+    {
+        _tank.OnProjectileHit += AddScore;
+    }
 
     public void AddScore(Collider2D other)
     {
