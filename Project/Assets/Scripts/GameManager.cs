@@ -10,22 +10,21 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
-
-    [SerializeField]
-    private GameObject _player1;
+    [SerializeField] private GameObject _player1;
     private TankController _player1Controller;
     private TankScore _player1Score;
 
-    [SerializeField]
-    private GameObject _player2;
+    [SerializeField] private GameObject _player2;
     private TankController _player2Controller;
     private TankScore _player2Score;
 
-    [SerializeField]
-    private int _rounds;
-    private int _currentTurn = 0;
+    [SerializeField] private int _rounds;
+    public int _currentTurn = 0;
 
-    private GameState _state;
+    public GameState _state;
+
+    public GameState State => _state;
+
     private GameState _nextTurn;
 
     private void Awake()
@@ -42,9 +41,9 @@ public class GameManager : MonoBehaviour
 
     public void ChangeTurn()
     {
-        switch ( _state)
+        switch (_state)
         {
-            case GameState.Player1Turn: 
+            case GameState.Player1Turn:
                 _nextTurn = GameState.Player2Turn;
                 _state = GameState.Shot;
                 _player1Controller.enabled = false;
@@ -58,14 +57,15 @@ public class GameManager : MonoBehaviour
 
             case GameState.Shot:
                 ++_currentTurn;
-                if (_currentTurn == 2*_rounds)
+                if (_currentTurn == 2 * _rounds)
                 {
                     _state = GameState.Over;
                     GameEnd();
                     break;
                 }
+
                 _state = _nextTurn;
-                if(_state == GameState.Player1Turn) _player1Controller.enabled = true;
+                if (_state == GameState.Player1Turn) _player1Controller.enabled = true;
                 else _player2Controller.enabled = true;
                 break;
         }
@@ -78,5 +78,4 @@ public class GameManager : MonoBehaviour
         Debug.Log(_player1Score.Score);
         Debug.Log(_player2Score.Score);
     }
-
 }
