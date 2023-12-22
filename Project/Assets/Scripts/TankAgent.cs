@@ -12,6 +12,8 @@ public class TankAgent : Agent, ITankController
 
     public TankBehaviour TankBehaviour { get => _tank; }
 
+    private int _step = 0;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,7 +21,13 @@ public class TankAgent : Agent, ITankController
         {
             var dist = Vector3.Distance(other.ClosestPoint(projectile.transform.position), _target.position);
 
-            AddReward(Mathf.Clamp(-dist / 8 + 1, -1, 1));
+            // AddReward(Mathf.Clamp(-dist / 8 + 1, -1, 1) / 100);
+
+            if (_step >= 1000) {
+                Debug.Log("End episode " + _step);
+                EndEpisode();
+            }
+            _step++;
         };
     }
 
@@ -34,23 +42,33 @@ public class TankAgent : Agent, ITankController
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        base.OnActionReceived(actions);
-        _tank.Angle = actions.ContinuousActions[0] * 180f + 180f;
-        _tank.Power = actions.ContinuousActions[1] * 50f + 50f;
+        // _tank.Angle = actions.ContinuousActions[0] * 180f + 180f;
+        // _tank.Power = actions.ContinuousActions[1] * 50f + 50f;
+
+        _tank.Angle = actions.DiscreteActions[0] == 1 ? 0f : 180f;
 
         _tank.Shoot();
+
+        if (_tank.Angle == 0f) {
+            SetReward(1f);
+        }
+        else {
+            SetReward(-1f);
+        }
+        // EndEpisode();
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        base.CollectObservations(sensor);
-        sensor.AddObservation(transform.position);
-        sensor.AddObservation(_target.position);
+        var dist = Vector3.Distance(transform.position, _target.position);
+        // sensor.AddObservation(dist / (1f + Math.Abs(dist)));
+        sensor.AddObservation(true);
     }
 
     public override void OnEpisodeBegin()
     {
-        base.OnEpisodeBegin();
+        Debug.Log($"Begin episode {_step}");
+        _step = 0;
     }
 
     public void StartTurn()
