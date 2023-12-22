@@ -9,17 +9,17 @@ public class TankAgent : Agent, ITankController
     [SerializeField] private TankBehaviour _tank;
     [SerializeField] private Transform _target;
 
+
     public TankBehaviour TankBehaviour { get => _tank; }
 
     // Start is called before the first frame update
     void Awake()
     {
-        _tank.OnProjectileHit += other =>
+        _tank.OnProjectileHit += (projectile, other) =>
         {
-            var dist = Vector3.Distance(other.transform.position, _target.position);
-            Debug.Log(dist + " " + _tank.gameObject.name);
-            SetReward(-dist);
-            EndTurn();
+            var dist = Vector3.Distance(other.ClosestPoint(projectile.transform.position), _target.position);
+
+            AddReward(Mathf.Clamp(-dist / 8 + 1, -1, 1));
         };
     }
 
@@ -35,10 +35,9 @@ public class TankAgent : Agent, ITankController
     public override void OnActionReceived(ActionBuffers actions)
     {
         base.OnActionReceived(actions);
-        _tank.Angle = actions.ContinuousActions[0] * 360f;
-        _tank.Power = actions.ContinuousActions[1] * 100f;
+        _tank.Angle = actions.ContinuousActions[0] * 180f + 180f;
+        _tank.Power = actions.ContinuousActions[1] * 50f + 50f;
 
-        // System.Threading.Thread.Sleep(500);
         _tank.Shoot();
     }
 
@@ -59,8 +58,5 @@ public class TankAgent : Agent, ITankController
         RequestDecision();
     }
 
-    public void EndTurn()
-    {
-        EndEpisode();
-    }
+    public void EndTurn() { }
 }

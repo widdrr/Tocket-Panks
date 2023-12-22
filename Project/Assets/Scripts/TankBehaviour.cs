@@ -19,7 +19,7 @@ public class TankBehaviour : MonoBehaviour
     }
 
     public delegate void OnShotFired();
-    public delegate void OnShotLanded(Collider2D other);
+    public delegate void OnShotLanded(Projectile projectile, Collider2D other);
 
     public OnShotFired OnProjectileFired;
     public OnShotLanded OnProjectileHit;
@@ -48,7 +48,7 @@ public class TankBehaviour : MonoBehaviour
 
         projectile.owner = this;
         projectile.transform.up = _firingPoint.right;
-        projectile.onHit += other => OnProjectileHit(other);
+        projectile.onHit += (projectile, other) => OnProjectileHit(projectile, other);
         projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.up * _power / 5;
     }
 }

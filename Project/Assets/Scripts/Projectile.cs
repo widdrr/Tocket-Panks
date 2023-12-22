@@ -1,13 +1,13 @@
 using UnityEngine;
 
-[RequireComponent (typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
 
     public TankBehaviour owner;
 
-    public delegate void OnHit(Collider2D other);
+    public delegate void OnHit(Projectile self, Collider2D other);
 
     public OnHit onHit;
     private void Awake()
@@ -21,7 +21,11 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        onHit(other);
-        Destroy(gameObject);
+        if (gameObject.activeInHierarchy)
+        {
+            onHit(this, other);
+            Destroy(gameObject);
+            gameObject.SetActive(false);
+        }
     }
 }

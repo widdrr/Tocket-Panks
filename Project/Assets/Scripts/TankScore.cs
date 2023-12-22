@@ -22,7 +22,7 @@ public class TankScore : MonoBehaviour
 
     private void Awake()
     {
-        _tank.OnProjectileHit += AddScore;
+        _tank.OnProjectileHit += (_, other) => AddScore(other);
     }
 
     public void AddScore(Collider2D other)

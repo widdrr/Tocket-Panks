@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5085000528976922501
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7382947752795855281, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382947752795855281, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382947752795855281, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382947752795855281, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382947752795855281, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382947752795855281, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382947752795855281, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382947752795855281, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382947752795855281, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382947752795855281, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      propertyPath: m_Name
+      value: AI Tank
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -775747567476278741}
+    - targetCorrespondingSourceObject: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1761950334230532106}
+  m_SourcePrefab: {fileID: 100100000, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+--- !u!114 &1057801461975136008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5206053250062446733, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+  m_PrefabInstance: {fileID: 5085000528976922501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4253293008501469484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b225013f02d3a944a6abe0925eb340b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4253293008501469484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9049761895132051113, guid: 10f7626ca0949f445bea455d637cc024, type: 3}
+  m_PrefabInstance: {fileID: 5085000528976922501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-775747567476278741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4253293008501469484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 6
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 2
+      BranchSizes: 
+    VectorActionSize: 02000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 1
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: Tank
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
+--- !u!114 &-1761950334230532106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4253293008501469484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2322466fd3c1ca8799a57fb89db09b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  _tank: {fileID: 1057801461975136008}
+  _target: {fileID: 0}
