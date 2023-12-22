@@ -14,6 +14,8 @@ public class PassTurn : MonoBehaviour, ITankController
 
     public void StartTurn()
     {
+        _tankBehaviour.Power = 0;
+        _tankBehaviour.Angle = 270;
         _tankBehaviour.Shoot();
     }
 }

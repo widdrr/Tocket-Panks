@@ -34,14 +34,15 @@ public class GameManager : MonoBehaviour
         _player2Score = _player2.GetComponent<TankScore>();
 
         _state = GameState.Player1Turn;
-        _player1Controller.StartTurn();
-        _player2Controller.EndTurn();
 
         _player1Controller.TankBehaviour.OnProjectileFired += ChangeState;
         _player2Controller.TankBehaviour.OnProjectileFired += ChangeState;
 
         _player1Controller.TankBehaviour.OnProjectileHit += (_, _) => ChangeState();
         _player2Controller.TankBehaviour.OnProjectileHit += (_, _) => ChangeState();
+
+        _player1Controller.StartTurn();
+        _player2Controller.EndTurn();
     }
 
     public void ChangeState()

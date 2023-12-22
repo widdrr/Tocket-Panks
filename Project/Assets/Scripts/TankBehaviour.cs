@@ -44,7 +44,7 @@ public class TankBehaviour : MonoBehaviour
     {
         OnProjectileFired();
 
-        var projectile = Instantiate(_weapon, _firingPoint.position, Quaternion.identity);
+        var projectile = Instantiate(_weapon, _firingPoint.position, Quaternion.identity, transform);
 
         projectile.owner = this;
         projectile.transform.up = _firingPoint.right;
