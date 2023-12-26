@@ -12,6 +12,16 @@ public class PassTurn : MonoBehaviour, ITankController
         return;
     }
 
+    public void GameEnd(int selfScore, int opponentScore)
+    {
+        return;
+    }
+
+    public void GameStart()
+    {
+        return;
+    }
+
     public void StartTurn()
     {
         _tankBehaviour.Power = 0;

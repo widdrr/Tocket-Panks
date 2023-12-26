@@ -903,6 +903,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5186954538794168127, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: reward
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5430565147270374690, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Name
       value: Arena

@@ -10,22 +10,21 @@ public class TankAgent : Agent, ITankController
     [SerializeField] private Transform _target;
 
     public TankBehaviour TankBehaviour { get => _tank; }
-    private int steps = 0;
 
     // Start is called before the first frame update
-    void Awake()
-    {
-        _tank.OnProjectileHit += (projectile, other) =>
-        {
-            var dist = Vector3.Distance(other.ClosestPoint(projectile.transform.position), _target.position);
-            SetReward(Mathf.Clamp(-dist / 8 + 1, -1, 1));
-            ++steps;
-            if (steps >= 100)
-            {
-                EndEpisode();
-            }
-        };
-    }
+    //void Awake()
+    //{
+    //    _tank.OnProjectileHit += (projectile, other) =>
+    //    {
+    //        var dist = Vector3.Distance(other.ClosestPoint(projectile.transform.position), _target.position);
+    //        SetReward(0);
+    //        ++steps;
+    //        if (steps >= 100)
+    //        {
+    //            EndEpisode();
+    //        }
+    //    };
+    //}
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
@@ -38,21 +37,20 @@ public class TankAgent : Agent, ITankController
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        _tank.Angle = actions.ContinuousActions[0] * 180f + 180f;
-        _tank.Power = actions.ContinuousActions[1] * 50f + 50f;
+        _tank.Angle = actions.DiscreteActions[0];
+        _tank.Power = actions.DiscreteActions[1];
 
         _tank.Shoot();
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        var dist = Vector3.Distance(transform.position, _target.position) * _target.position.x >= transform.position.x ? 1 : -1;
-        sensor.AddObservation(dist / (1f + Math.Abs(dist)));
+        var relativePos = _target.transform.position - transform.position;
+        sensor.AddObservation(relativePos);
     }
 
     public override void OnEpisodeBegin()
     {
-        steps = 0;
     }
 
     public void StartTurn()
@@ -61,4 +59,26 @@ public class TankAgent : Agent, ITankController
     }
 
     public void EndTurn() { }
+
+    public void GameEnd(int selfScore, int opponentScore)
+    {
+        if(selfScore > opponentScore)
+        {
+            SetReward(1);
+        }
+        else if(selfScore == opponentScore)
+        {
+            SetReward(-1);
+        }
+        else if(selfScore < opponentScore)
+        {
+            SetReward(0);
+        }
+        EndEpisode();
+    }
+
+    public void GameStart()
+    {
+        return;
+    }
 }

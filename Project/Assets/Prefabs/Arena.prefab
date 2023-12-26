@@ -477,7 +477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player1: {fileID: 4462340519651779416}
   _player2: {fileID: 1977418192758387173}
-  _rounds: 100000
+  _rounds: 10
   _currentTurn: 0
   _state: 0
 --- !u!1001 &498721413504225908
@@ -505,36 +505,8 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
-      propertyPath: m_Model
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
-      propertyPath: m_BrainParameters.VectorActionSpaceType
+      propertyPath: m_InferenceDevice
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
-      propertyPath: m_BrainParameters.VectorObservationSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
-      propertyPath: m_BrainParameters.VectorActionSize.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
-      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
-      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
-      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
-      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.data[0]
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1057801461975136008, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: _angle
@@ -592,27 +564,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -1761950334230532106, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
-    - {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4253293008501469484, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3665610809529773720}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
---- !u!114 &596094355801269628 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1057801461975136008, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
-  m_PrefabInstance: {fileID: 498721413504225908}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4462340519651779416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b225013f02d3a944a6abe0925eb340b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2742448823597091904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
@@ -623,19 +579,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4253293008501469484, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
   m_PrefabInstance: {fileID: 498721413504225908}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3665610809529773720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4462340519651779416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9adcebf1402f856478b7f99cb3859f13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tankBehaviour: {fileID: 596094355801269628}
 --- !u!1001 &2339488246597402825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -648,6 +591,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 2742448823597091904}
+    - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
+      propertyPath: TeamId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_Model
       value: 

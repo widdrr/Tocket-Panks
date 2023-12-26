@@ -1,4 +1,3 @@
-using UnityEngine;
 
 public interface ITankController
 {
@@ -7,4 +6,8 @@ public interface ITankController
     public void StartTurn();
 
     public void EndTurn();
+
+    public void GameEnd(int selfScore, int opponentScore);
+    
+    public void GameStart();
 }

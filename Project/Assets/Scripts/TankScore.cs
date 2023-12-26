@@ -36,4 +36,9 @@ public class TankScore : MonoBehaviour
             Score -= 2;
         }
     }
+
+    public void ResetScore()
+    {
+        Score = 0;
+    }
 }

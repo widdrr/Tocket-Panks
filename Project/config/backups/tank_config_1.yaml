@@ -2,8 +2,8 @@ behaviors:
   Tank:
     trainer_type: ppo
     hyperparameters:
-      batch_size: 32
-      buffer_size: 3200
+      batch_size: 512
+      buffer_size: 5120
       learning_rate: 1.0e-3
       beta: 5.0e-4
       epsilon: 0.2
@@ -15,14 +15,11 @@ behaviors:
     network_settings:
       normalize: false
       hidden_units: 128
-      num_layers: 2
+      num_layers: 3
     reward_signals:
       extrinsic:
         gamma: 0.99
         strength: 1.0
-    self_play:
-      save_steps: 20000
-      team_change: 80000
     max_steps: 5000000
     time_horizon: 64
-    summary_freq: 3200
+    summary_freq: 5120

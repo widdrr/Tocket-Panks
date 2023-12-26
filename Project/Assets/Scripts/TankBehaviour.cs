@@ -1,21 +1,22 @@
+using System;
 using UnityEngine;
 
 public class TankBehaviour : MonoBehaviour
 {
-    [SerializeField] [Range(0f, 360f)] private float _angle;
+    [SerializeField][Range(0, 359)] private int _angle;
 
-    public float Angle
+    public int Angle
     {
         get { return _angle; }
-        set { _angle = Mathf.Repeat(value, 360f); }
+        set { _angle = value % 360; }
     }
 
-    [SerializeField] [Range(0f, 100f)] private float _power;
+    [SerializeField][Range(0, 100)] private int _power;
 
-    public float Power
+    public int Power
     {
         get { return _power; }
-        set { _power = Mathf.Clamp(value, 0, 100); }
+        set { _power = Math.Clamp(value, 0, 100); }
     }
 
     public delegate void OnShotFired();
@@ -42,6 +43,7 @@ public class TankBehaviour : MonoBehaviour
 
     public void Shoot()
     {
+        SetTurret();
         OnProjectileFired();
 
         var projectile = Instantiate(_weapon, _firingPoint.position, Quaternion.identity, transform);
