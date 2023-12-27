@@ -11,20 +11,22 @@ public class TankAgent : Agent, ITankController
 
     public TankBehaviour TankBehaviour { get => _tank; }
 
-    // Start is called before the first frame update
-    //void Awake()
-    //{
-    //    _tank.OnProjectileHit += (projectile, other) =>
-    //    {
-    //        var dist = Vector3.Distance(other.ClosestPoint(projectile.transform.position), _target.position);
-    //        SetReward(0);
-    //        ++steps;
-    //        if (steps >= 100)
-    //        {
-    //            EndEpisode();
-    //        }
-    //    };
-    //}
+    void Awake()
+    {
+        _tank.OnProjectileHit += (projectile, other) =>
+        {
+            if (other.CompareTag("OutOfBounds") || other.CompareTag("Player1"))
+            {
+                AddReward(-1);
+            }
+            else
+            {
+                var dist = Vector3.Distance(other.ClosestPoint(projectile.transform.position), _target.position);
+                AddReward(Mathf.Exp(-dist));
+            }
+            EndEpisode();
+        };
+    }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
@@ -55,6 +57,7 @@ public class TankAgent : Agent, ITankController
 
     public void StartTurn()
     {
+        Debug.Log("Action");
         RequestDecision();
     }
 
@@ -62,19 +65,19 @@ public class TankAgent : Agent, ITankController
 
     public void GameEnd(int selfScore, int opponentScore)
     {
-        if(selfScore > opponentScore)
-        {
-            SetReward(1);
-        }
-        else if(selfScore == opponentScore)
-        {
-            SetReward(-1);
-        }
-        else if(selfScore < opponentScore)
-        {
-            SetReward(0);
-        }
-        EndEpisode();
+        //if(selfScore > opponentScore)
+        //{
+        //    SetReward(1);
+        //}
+        //else if(selfScore == opponentScore)
+        //{
+        //    SetReward(0);
+        //}
+        //else if(selfScore < opponentScore)
+        //{
+        //    SetReward(-1);
+        //}
+        //EndEpisode();
     }
 
     public void GameStart()

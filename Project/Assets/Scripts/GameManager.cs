@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         switch (_state)
         {
             case GameState.Player1Turn:
-                _nextTurn = GameState.Player2Turn;
+                _nextTurn = GameState.Player2Turn; //Remember to change this back to 2
                 _player1Controller.EndTurn();
                 _state = GameState.Shot;
                 break;

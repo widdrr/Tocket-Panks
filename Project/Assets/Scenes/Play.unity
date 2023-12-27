@@ -182,9 +182,11 @@ PrefabInstance:
     - target: {fileID: 6146416890564590306, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 6c88575ecf98ea240bfcc514da33041e, type: 3}
     m_RemovedComponents:
     - {fileID: 3665610809529773720, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+    - {fileID: 7018750043087846786, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+    - {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
