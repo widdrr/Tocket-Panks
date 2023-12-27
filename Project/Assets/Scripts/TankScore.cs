@@ -1,12 +1,6 @@
 using System;
 using UnityEngine;
 
-public enum PlayerTags
-{
-    Player1,
-    Player2
-}
-
 public class TankScore : MonoBehaviour
 {
     public int Score { get; private set; }
@@ -15,10 +9,10 @@ public class TankScore : MonoBehaviour
     private TankBehaviour _tank;
 
     [SerializeField]
-    private PlayerTags _selfTag;
+    private Tags _selfTag;
 
     [SerializeField]
-    private PlayerTags _opponentTag;
+    private Tags _opponentTag;
 
     private void Awake()
     {

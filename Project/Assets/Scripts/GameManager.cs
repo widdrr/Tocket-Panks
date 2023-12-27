@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         switch (_state)
         {
             case GameState.Player1Turn:
-                _nextTurn = GameState.Player2Turn;
+                _nextTurn = GameState.Player2Turn;  //Change this to Player1 when training only one Tank(if it works for you)
                 _player1Controller.EndTurn();
                 _state = GameState.Shot;
                 break;

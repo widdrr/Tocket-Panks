@@ -342,7 +342,7 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!1001 &1678328153
+--- !u!1001 &1942199014
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -350,10 +350,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3375897592940033985, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
-      propertyPath: _angle
-      value: 173
-      objectReference: {fileID: 0}
     - target: {fileID: 4637888917138205032, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -394,25 +390,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5186954538794168127, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
-      propertyPath: reward
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 5430565147270374690, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Name
       value: Arena
-      objectReference: {fileID: 0}
-    - target: {fileID: 6146416890564590306, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
-      propertyPath: m_BrainParameters.VectorActionSize.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6146416890564590306, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
-      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6146416890564590306, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
-      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.data[0]
-      value: 360
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -425,4 +405,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 839927441}
   - {fileID: 610860137}
-  - {fileID: 1678328153}
+  - {fileID: 1942199014}

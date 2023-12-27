@@ -127,3 +127,5 @@ MonoBehaviour:
   MaxStep: 0
   _tank: {fileID: 1057801461975136008}
   _target: {fileID: 0}
+  _selfTag: 0
+  _outOfBoundsTag: 2

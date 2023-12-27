@@ -8,6 +8,8 @@ public class TankAgent : Agent, ITankController
 {
     [SerializeField] private TankBehaviour _tank;
     [SerializeField] private Transform _target;
+    [SerializeField] private Tags _selfTag;
+    [SerializeField] private Tags _outOfBoundsTag;
 
     public TankBehaviour TankBehaviour { get => _tank; }
 
@@ -15,7 +17,7 @@ public class TankAgent : Agent, ITankController
     {
         _tank.OnProjectileHit += (projectile, other) =>
         {
-            if (other.CompareTag("OutOfBounds") || other.CompareTag("Player1"))
+            if (other.CompareTag(_outOfBoundsTag.ToString()) || other.CompareTag(_selfTag.ToString()))
             {
                 AddReward(-1);
             }
@@ -57,7 +59,6 @@ public class TankAgent : Agent, ITankController
 
     public void StartTurn()
     {
-        Debug.Log("Action");
         RequestDecision();
     }
 

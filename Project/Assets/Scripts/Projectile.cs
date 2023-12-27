@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
+            Debug.Log("Hit");
             onHit(this, other);
             Destroy(gameObject);
             gameObject.SetActive(false);
