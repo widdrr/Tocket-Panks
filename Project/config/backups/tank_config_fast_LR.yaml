@@ -22,7 +22,7 @@ behaviors:
         strength: 1.0
     max_steps: 500000
     time_horizon: 64
-    summary_freq: 1600
+    summary_freq: 3200
 engine_settings:
   width: 30
   height: 30

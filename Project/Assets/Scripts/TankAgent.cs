@@ -22,7 +22,7 @@ public class TankAgent : Agent, ITankController
             else
             {
                 var dist = Vector3.Distance(other.ClosestPoint(projectile.transform.position), _target.position);
-                AddReward(Mathf.Exp(-dist));
+                AddReward(Mathf.Exp((-dist + 0.5f)*0.2f));
             }
             EndEpisode();
         };
