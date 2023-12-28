@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5430565147270374690, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Name
-      value: Arena (10)
+      value: Arena
       objectReference: {fileID: 0}
     - target: {fileID: 6146416890564590306, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Model
@@ -190,9 +190,14 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 8711894272527511843, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+    - {fileID: 7018750043087846786, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+    - {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4462340519651779416, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1455433556}
     - targetCorrespondingSourceObject: {fileID: 1977418192758387173, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 289114989}
@@ -234,6 +239,8 @@ MonoBehaviour:
   MaxStep: 0
   _tank: {fileID: 289114986}
   _target: {fileID: 748391460}
+  _selfTag: 0
+  _outOfBoundsTag: 0
 --- !u!114 &289114989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,6 +413,35 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &1455433549 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4462340519651779416, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+  m_PrefabInstance: {fileID: 63682358}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1455433555 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 596094355801269628, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+  m_PrefabInstance: {fileID: 63682358}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455433549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b225013f02d3a944a6abe0925eb340b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1455433556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455433549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6c8cb84b999c94eae1ddd32bbecbb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tank: {fileID: 1455433555}
 --- !u!1 &2130474064
 GameObject:
   m_ObjectHideFlags: 0

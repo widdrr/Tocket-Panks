@@ -338,7 +338,7 @@ MonoBehaviour:
   _power: 0
   _head: {fileID: 9097081413367006816}
   _firingPoint: {fileID: 904066630003923504}
-  _weapon: {fileID: 4281781592808094629, guid: 804f67d15b97c7a4c82103d0f9d1fe34, type: 3}
+  _weapon: {fileID: 6385811036165866472, guid: 804f67d15b97c7a4c82103d0f9d1fe34, type: 3}
 --- !u!114 &8358206413272432152
 MonoBehaviour:
   m_ObjectHideFlags: 0

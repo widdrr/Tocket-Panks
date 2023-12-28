@@ -5,6 +5,7 @@ public enum GameState
     Player1Turn,
     Player2Turn,
     Shot,
+    AfterEffects,
     Over,
 }
 
@@ -13,10 +14,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _player1;
     private ITankController _player1Controller;
     private TankScore _player1Score;
+    private Rigidbody2D _player1Rigidbody;
 
     [SerializeField] private GameObject _player2;
     private ITankController _player2Controller;
     private TankScore _player2Score;
+    private Rigidbody2D _player2Rigidbody;
 
     [SerializeField] private int _rounds;
     public int _currentTurn = 0;
@@ -25,10 +28,14 @@ public class GameManager : MonoBehaviour
 
     private GameState _nextTurn;
 
+
     private void Awake()
     {
         _player1Controller = _player1.GetComponent<ITankController>();
         _player2Controller = _player2.GetComponent<ITankController>();
+
+        _player1Rigidbody = _player1.GetComponent<Rigidbody2D>();
+        _player2Rigidbody = _player2.GetComponent<Rigidbody2D>();
 
         _player1Score = _player1.GetComponent<TankScore>();
         _player2Score = _player2.GetComponent<TankScore>();
@@ -36,10 +43,21 @@ public class GameManager : MonoBehaviour
         _player1Controller.TankBehaviour.OnProjectileFired += ChangeState;
         _player2Controller.TankBehaviour.OnProjectileFired += ChangeState;
 
-        _player1Controller.TankBehaviour.OnProjectileHit += (_, _) => ChangeState();
-        _player2Controller.TankBehaviour.OnProjectileHit += (_, _) => ChangeState();
+        _player1Controller.TankBehaviour.OnProjectileEffectEnd += ChangeState;
+        _player2Controller.TankBehaviour.OnProjectileEffectEnd += ChangeState;
 
         GameStart();
+    }
+
+    private void FixedUpdate()
+    {
+        if(_state == GameState.AfterEffects)
+        {
+            if(TankIsStationary(_player1Rigidbody) && TankIsStationary(_player2Rigidbody))
+            {
+                ChangeState();
+            }
+        }
     }
 
     public void ChangeState()
@@ -59,6 +77,10 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.Shot:
+                _state = GameState.AfterEffects;
+                break;
+
+            case GameState.AfterEffects:
                 ++_currentTurn;
                 if (_currentTurn == 2 * _rounds)
                 {
@@ -98,5 +120,10 @@ public class GameManager : MonoBehaviour
         _player2Score.ResetScore();
 
         GameStart();
+    }
+
+    private bool TankIsStationary(Rigidbody2D tank)
+    {
+        return tank.velocity == Vector2.zero && tank.totalForce == Vector2.zero;
     }
 }

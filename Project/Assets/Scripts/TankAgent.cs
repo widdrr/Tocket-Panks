@@ -15,7 +15,7 @@ public class TankAgent : Agent, ITankController
 
     void Awake()
     {
-        _tank.OnProjectileHit += (projectile, other) =>
+        _tank.OnExplosionEffect += (Explosion explosion, Collider2D other) =>
         {
             if (other.CompareTag(_outOfBoundsTag.ToString()) || other.CompareTag(_selfTag.ToString()))
             {
@@ -23,7 +23,7 @@ public class TankAgent : Agent, ITankController
             }
             else
             {
-                var dist = Vector3.Distance(other.ClosestPoint(projectile.transform.position), _target.position);
+                var dist = Vector3.Distance(other.ClosestPoint(explosion.transform.position), _target.position);
                 AddReward(Mathf.Exp((-dist + 0.5f)*0.2f));
             }
             EndEpisode();
