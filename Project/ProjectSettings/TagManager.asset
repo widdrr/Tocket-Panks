@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Player1
   - Player2
+  - OutOfBounds
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Tank
   - Water
   - UI
   - 

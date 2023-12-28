@@ -1,20 +1,23 @@
+using System;
 using UnityEngine;
-
-public enum PlayerTags
-{
-    Player1,
-    Player2
-}
 
 public class TankScore : MonoBehaviour
 {
     public int Score { get; private set; }
 
     [SerializeField]
-    private PlayerTags _selfTag;
+    private TankBehaviour _tank;
 
     [SerializeField]
-    private PlayerTags _opponentTag;
+    private Tags _selfTag;
+
+    [SerializeField]
+    private Tags _opponentTag;
+
+    private void Awake()
+    {
+        _tank.OnProjectileHit += (_, other) => AddScore(other);
+    }
 
     public void AddScore(Collider2D other)
     {
@@ -26,5 +29,10 @@ public class TankScore : MonoBehaviour
         {
             Score -= 2;
         }
+    }
+
+    public void ResetScore()
+    {
+        Score = 0;
     }
 }

@@ -1,43 +1,35 @@
+using System;
 using UnityEngine;
 
 public class TankBehaviour : MonoBehaviour
 {
-    [SerializeField]
-    [Range(0f, 360f)]
-    private float _angle;
-    public float Angle
+    [SerializeField][Range(0, 359)] private int _angle;
+
+    public int Angle
     {
         get { return _angle; }
-        set { _angle = Mathf.Repeat(value, 360f); }
+        set { _angle = value % 360; }
     }
 
-    [SerializeField]
-    [Range(0f,100f)]
-    private float _power;
-    public float Power
+    [SerializeField][Range(0, 100)] private int _power;
+
+    public int Power
     {
         get { return _power; }
-        set { _power = Mathf.Clamp(value, 0, 100); }
+        set { _power = Math.Clamp(value, 0, 100); }
     }
 
-    [SerializeField]
-    private Transform _head;
+    public delegate void OnShotFired();
+    public delegate void OnShotLanded(Projectile projectile, Collider2D other);
 
-    [SerializeField]
-    private Transform _firingPoint;
+    public OnShotFired OnProjectileFired;
+    public OnShotLanded OnProjectileHit;
 
-    [SerializeField]
-    private Projectile _weapon;
+    [SerializeField] private Transform _head;
 
-    [SerializeField]
-    private GameManager _gameManager;
+    [SerializeField] private Transform _firingPoint;
 
-    private TankScore _tankScore;
-
-    private void Awake()
-    {
-        _tankScore = GetComponent<TankScore>();
-    }
+    [SerializeField] private Projectile _weapon;
 
     private void Update()
     {
@@ -51,17 +43,14 @@ public class TankBehaviour : MonoBehaviour
 
     public void Shoot()
     {
-        _gameManager.ChangeTurn();
+        SetTurret();
+        OnProjectileFired();
 
-        var projectile = Instantiate(_weapon, _firingPoint.position, Quaternion.identity);
+        var projectile = Instantiate(_weapon, _firingPoint.position, Quaternion.identity, transform);
 
         projectile.owner = this;
         projectile.transform.up = _firingPoint.right;
-        projectile.onHit += _tankScore.AddScore;
-        projectile.onHit += ChangeTurnDelegate;       
+        projectile.onHit += (projectile, other) => OnProjectileHit(projectile, other);
         projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.up * _power / 5;
     }
-
-    private void ChangeTurnDelegate(Collider2D other) => _gameManager.ChangeTurn();
-
 }

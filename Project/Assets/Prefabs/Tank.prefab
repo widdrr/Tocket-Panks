@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7981030020688188878}
   - component: {fileID: 1179781785301651313}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1570446859508837824}
   - component: {fileID: 6243524518848520096}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9097081413367006816}
   - component: {fileID: 6172285809933618661}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 904066630003923504}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FiringPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 8358206413272432152}
   - component: {fileID: 6504262770848296332}
   - component: {fileID: 6978751266816446642}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,6 @@ MonoBehaviour:
   _head: {fileID: 9097081413367006816}
   _firingPoint: {fileID: 904066630003923504}
   _weapon: {fileID: 4281781592808094629, guid: 804f67d15b97c7a4c82103d0f9d1fe34, type: 3}
-  _gameManager: {fileID: 0}
 --- !u!114 &8358206413272432152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,12 +351,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb75e06c83f9c3e428c5776e9a940596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selfLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  _opponentLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  _tank: {fileID: 5206053250062446733}
+  _selfTag: 0
+  _opponentTag: 1
 --- !u!50 &6504262770848296332
 Rigidbody2D:
   serializedVersion: 4
