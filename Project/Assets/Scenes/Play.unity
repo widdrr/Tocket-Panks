@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1889706406742784125, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_GravityScale
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1957256852282899037, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_IsTrigger
@@ -198,7 +198,7 @@ PrefabInstance:
     - target: {fileID: 6146416890564590306, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 6c88575ecf98ea240bfcc514da33041e, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 02d381ae9803a9841bcdf1e08e620882, type: 3}
     - target: {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Model
       value: 
