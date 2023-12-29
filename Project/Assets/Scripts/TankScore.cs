@@ -19,8 +19,8 @@ public class TankScore : MonoBehaviour
         _tank.OnExplosionEffect += (Explosion explosion, Collider2D other) =>
         {
             var contact = other.ClosestPoint(explosion.transform.position);
-            float distance = Vector3.Distance(explosion.transform.position, contact);
-            Debug.Log(distance);
+            float distance = Vector3.Distance(explosion.transform.position, new Vector3(contact.x, contact.y));
+
             AddScore(explosion.ComputeDamage(distance), other);
         };
     }
@@ -35,7 +35,6 @@ public class TankScore : MonoBehaviour
         {
             Score -= score;
         }
-        Debug.Log(score);
     }
 
     public void ResetScore()

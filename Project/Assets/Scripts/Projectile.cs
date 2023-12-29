@@ -21,7 +21,14 @@ public abstract class Projectile : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
-            OnHit(other);
+            if (other.gameObject.CompareTag(Tags.OutOfBounds.ToString()))
+            {
+                owner.OnOutOfBounds(other.ClosestPoint(transform.position));
+            }
+            else
+            {
+                OnHit(other);
+            }
             Destroy(gameObject);
             gameObject.SetActive(false);
         }

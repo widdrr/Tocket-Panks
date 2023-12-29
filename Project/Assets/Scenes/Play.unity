@@ -131,6 +131,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1889706406742784125, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957256852282899037, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957256852282899037, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4637888917138205032, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -174,6 +186,10 @@ PrefabInstance:
     - target: {fileID: 5150511060914169363, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: _rounds
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402095257704095202, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 5430565147270374690, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Name
@@ -240,7 +256,6 @@ MonoBehaviour:
   _tank: {fileID: 289114986}
   _target: {fileID: 748391460}
   _selfTag: 0
-  _outOfBoundsTag: 0
 --- !u!114 &289114989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,7 +378,7 @@ Transform:
   m_GameObject: {fileID: 1089769919}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 2.1, z: -10}
+  m_LocalPosition: {x: -0.94, y: 2.1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

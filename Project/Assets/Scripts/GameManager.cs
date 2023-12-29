@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour
         _player1Controller.TankBehaviour.OnProjectileEffectEnd += ChangeState;
         _player2Controller.TankBehaviour.OnProjectileEffectEnd += ChangeState;
 
+        _player1Controller.TankBehaviour.OnOutOfBounds += _ => ChangeState();
+        _player2Controller.TankBehaviour.OnOutOfBounds += _ => ChangeState();
+
         GameStart();
     }
 
