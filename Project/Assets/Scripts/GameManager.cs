@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     private GameState _nextTurn;
 
+    public int player1Score;
+    public int player2Score;
 
     private void Awake()
     {
@@ -54,6 +56,9 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        player1Score = _player1Score.Score;
+        player2Score = _player2Score.Score;
+
         if(_state == GameState.AfterEffects)
         {
             if(TankIsStationary(_player1Rigidbody) && TankIsStationary(_player2Rigidbody))

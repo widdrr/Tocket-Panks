@@ -31,3 +31,10 @@ engine_settings:
   target_frame_rate: -1
   capture_frame_rate: 60
   no_graphics: true
+
+
+//Learned fast and could hit 100% from fixed position
+//Discrete angle and power
+//-1 for self hit or out of bounds
+//AddReward(Mathf.Exp((-dist + 0.5f)*0.2f)) if hit; 
+//1 episode = 1 shot

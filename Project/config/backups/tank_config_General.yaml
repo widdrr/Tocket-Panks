@@ -31,3 +31,10 @@ engine_settings:
   target_frame_rate: -1
   capture_frame_rate: 60
   no_graphics: true
+
+
+//Trained for ~3 hours
+//Is very accurate long and medium range, didn't get to learn close
+//Discrete angles and power
+//Explosive weapon with knockback
+//Reward was -1 out of bounds, -1 self hit, 1 explosion hit

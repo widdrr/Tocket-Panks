@@ -36,3 +36,8 @@ engine_settings:
   target_frame_rate: -1
   capture_frame_rate: 60
   no_graphics: true
+
+//Self play
+//Discrete angles and power
+//Reward function +1 win, -1 lose, 0 tie
+//Episode is one match consisting of 10 shots each
