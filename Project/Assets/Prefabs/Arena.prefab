@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1736177224171031294}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.867641, y: 5.64, z: 0.105208755}
+  m_LocalPosition: {x: 4.867641, y: 5.64, z: 0}
   m_LocalScale: {x: 17.812, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,7 +41,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1736177224171031294}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7db3d5a07e422f74db35d35f524932ed, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -61,8 +61,8 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0011080503, y: 0.059209198}
   m_SpriteTilingProperty:
@@ -103,7 +103,7 @@ Transform:
   m_GameObject: {fileID: 4040410591607624649}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.267641, y: -1.402996, z: 0.11101652}
+  m_LocalPosition: {x: 14.267641, y: -1.402996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,7 +118,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4040410591607624649}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7db3d5a07e422f74db35d35f524932ed, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -181,7 +181,7 @@ Transform:
   m_GameObject: {fileID: 5402095257704095202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.867641, y: -4.299996, z: 0.105208755}
+  m_LocalPosition: {x: 4.867641, y: -4.299996, z: 0}
   m_LocalScale: {x: 17.812, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -345,7 +345,7 @@ Transform:
   m_GameObject: {fileID: 7192376932555116327}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.5323586, y: -1.402996, z: 0.11101652}
+  m_LocalPosition: {x: -4.5323586, y: -1.402996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -360,7 +360,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 7192376932555116327}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7db3d5a07e422f74db35d35f524932ed, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -421,7 +421,7 @@ Transform:
   m_GameObject: {fileID: 7664342581998067689}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.814703, y: 1.957663, z: -0.026681475}
+  m_LocalPosition: {x: -5.814703, y: 1.957663, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -457,7 +457,7 @@ Transform:
   m_GameObject: {fileID: 9129906147199702679}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.944707, y: 0.85938585, z: 0.15333001}
+  m_LocalPosition: {x: -3.944707, y: 0.85938585, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -530,7 +530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.09563214
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -661,7 +661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.09563214
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_LocalRotation.w

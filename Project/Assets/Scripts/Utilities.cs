@@ -2,5 +2,6 @@
 {
     Player1,
     Player2,
+    Terrain,
     OutOfBounds
 }

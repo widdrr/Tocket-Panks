@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -9,24 +10,41 @@ public class TankAgent : Agent, ITankController
     [SerializeField] private TankBehaviour _tank;
     [SerializeField] private Transform _target;
     [SerializeField] private Tags _selfTag;
-    [SerializeField] private Tags _outOfBoundsTag;
 
     public TankBehaviour TankBehaviour { get => _tank; }
 
     void Awake()
     {
-        _tank.OnProjectileHit += (projectile, other) =>
+        _tank.OnOutOfBounds += _ =>
         {
-            if (other.CompareTag(_outOfBoundsTag.ToString()) || other.CompareTag(_selfTag.ToString()))
+            SetReward(-1);
+            EndEpisode();
+        };
+
+        _tank.OnProjectileEffectEnd += EndEpisode;
+
+        _tank.OnExplosionEffect += (Explosion explosion, Collider2D other) =>
+        {
+
+            //if (other.CompareTag(_outOfBoundsTag.ToString()) || other.CompareTag(_selfTag.ToString()))
+            //{
+            //    AddReward(-1);
+            //}
+            //else
+            //{
+            //    var dist = Vector3.Distance(other.ClosestPoint(explosion.transform.position), _target.position);
+            //    AddReward(Mathf.Exp((-dist + 0.5f)*0.2f));
+            //}
+
+            if (other.CompareTag(_selfTag.ToString()))
             {
                 AddReward(-1);
             }
             else
             {
-                var dist = Vector3.Distance(other.ClosestPoint(projectile.transform.position), _target.position);
-                AddReward(Mathf.Exp((-dist + 0.5f)*0.2f));
+                AddReward(1);
             }
-            EndEpisode();
+
         };
     }
 

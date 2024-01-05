@@ -16,18 +16,24 @@ public class TankScore : MonoBehaviour
 
     private void Awake()
     {
-        _tank.OnProjectileHit += (_, other) => AddScore(other);
+        _tank.OnExplosionEffect += (Explosion explosion, Collider2D other) =>
+        {
+            var contact = other.ClosestPoint(explosion.transform.position);
+            float distance = Vector3.Distance(explosion.transform.position, new Vector3(contact.x, contact.y));
+
+            AddScore(explosion.ComputeDamage(distance), other);
+        };
     }
 
-    public void AddScore(Collider2D other)
+    public void AddScore(int score, Collider2D other)
     {
         if(other.gameObject.CompareTag(_opponentTag.ToString()))
         {
-            Score += 1;
+            Score += score;
         }
         else if (other.gameObject.CompareTag(_selfTag.ToString()))
         {
-            Score -= 2;
+            Score -= score;
         }
     }
 

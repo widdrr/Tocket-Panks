@@ -23,3 +23,10 @@ behaviors:
     max_steps: 5000000
     time_horizon: 64
     summary_freq: 5120
+
+//Continous angle and power
+//Trained for aprox 2 hours, could hit 1/10 shots from a fixed pos.
+//linear reward based on distance to target 
+//Mathf.Clamp(-dist / 8 + 1, -1, 1) per shot;
+//Episode consists of 100 shots
+//Seems faulty but learned

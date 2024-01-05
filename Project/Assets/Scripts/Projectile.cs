@@ -1,32 +1,37 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Projectile : MonoBehaviour
+public abstract class Projectile : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody;
+    protected Rigidbody2D _rigidbody;
 
     public TankBehaviour owner;
 
-    public delegate void OnHit(Projectile self, Collider2D other);
-
-    public OnHit onHit;
-    private void Awake()
+    protected void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    protected void Update()
     {
         transform.up = _rigidbody.velocity.normalized;
     }
-    private void OnTriggerEnter2D(Collider2D other)
+
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         if (gameObject.activeInHierarchy)
         {
-            Debug.Log("Hit");
-            onHit(this, other);
+            if (other.gameObject.CompareTag(Tags.OutOfBounds.ToString()))
+            {
+                owner.OnOutOfBounds(other.ClosestPoint(transform.position));
+            }
+            else
+            {
+                OnHit(other);
+            }
             Destroy(gameObject);
             gameObject.SetActive(false);
         }
     }
+    protected abstract void OnHit(Collider2D other);
 }

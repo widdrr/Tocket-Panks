@@ -19,17 +19,22 @@ public class TankBehaviour : MonoBehaviour
         set { _power = Math.Clamp(value, 0, 100); }
     }
 
-    public delegate void OnShotFired();
-    public delegate void OnShotLanded(Projectile projectile, Collider2D other);
-
-    public OnShotFired OnProjectileFired;
-    public OnShotLanded OnProjectileHit;
+    public Delegates.VoidDelegate OnProjectileFired;
+    public Delegates.HitDelegate  OnOutOfBounds;
+    public Delegates.VoidDelegate OnProjectileEffectEnd;
+    public Delegates.ExplosionDelegate OnExplosionEffect;
 
     [SerializeField] private Transform _head;
 
     [SerializeField] private Transform _firingPoint;
 
     [SerializeField] private Projectile _weapon;
+
+
+    private void Awake()
+    {
+        OnExplosionEffect += ApplyKnockback;
+    }
 
     private void Update()
     {
@@ -50,7 +55,13 @@ public class TankBehaviour : MonoBehaviour
 
         projectile.owner = this;
         projectile.transform.up = _firingPoint.right;
-        projectile.onHit += (projectile, other) => OnProjectileHit(projectile, other);
         projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.up * _power / 5;
+    }
+
+    private static void ApplyKnockback(Explosion explosion, Collider2D other)
+    {
+        var force = explosion.ComputeKnockback(other.transform.position);
+
+        other.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
     }
 }
