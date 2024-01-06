@@ -4,7 +4,6 @@ using UnityEngine;
 public class TerrainGenerator : MonoBehaviour
 {
     [SerializeField] private int _terrainNodes;
-    [SerializeField] private float _groundLevel;
     [SerializeField] private float _depthLevel;
     [SerializeField] private float _maxHeight;
     [SerializeField] private float _minHeight;
@@ -12,8 +11,8 @@ public class TerrainGenerator : MonoBehaviour
     [SerializeField] private float _rightBound;
 
     private float _nodeDistance;
-
     private Terrain2D _terrain;
+
     void Start()
     {
         _terrain = GetComponent<Terrain2D>();

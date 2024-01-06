@@ -12,12 +12,12 @@ public class Terrain2D : MonoBehaviour
     public List<Vector3> nodes = new List<Vector3>();
 
     private Vector3[,] _lookupTable;
-    private Vector3 _leftmostNode;
     private Vector3 _rightmostNode;
     private float _nodeDistance;
+
     public void UpdateTerrain()
     {
-        if (nodes.Count < 3) return;
+        if (nodes.Count < 4) return;
         Triangulator triangulator = new Triangulator(nodes.ToArray());
         int[] indecies = triangulator.Triangulate();
         MeshFilter meshFilter = GetComponent<MeshFilter>();
@@ -30,12 +30,10 @@ public class Terrain2D : MonoBehaviour
         PolygonCollider2D collider = GetComponent<PolygonCollider2D>();
         collider.points = Vec3ToVec2Array(nodes.ToArray());
 
-        _leftmostNode = nodes[^1];
         _rightmostNode = nodes[2];
 
         _nodeDistance = nodes[2].x - nodes[3].x;
         PreprocessRMQ();
-        Debug.Log(HighestPointBetween(_leftmostNode, _rightmostNode));
     }
 
     private Vector2[] Vec3ToVec2Array(Vector3[] data)
@@ -90,9 +88,6 @@ public class Terrain2D : MonoBehaviour
         // 2^j elements in range
         // For [2, 10], we compare arr[lookup[0][3]] and
         // arr[lookup[3][3]]
-
-        var funnyNumber = rightIndex - (1 << j) + 1;
-
         if (_lookupTable[leftIndex, j].y >= _lookupTable[rightIndex - (1 << j) + 1, j].y)
             return _lookupTable[leftIndex, j];
 
