@@ -10,6 +10,7 @@ public class TankAgent : Agent, ITankController
     [SerializeField] private TankBehaviour _tank;
     [SerializeField] private Transform _target;
     [SerializeField] private Tags _selfTag;
+    [SerializeField] private Terrain2D _terrain;
 
     public TankBehaviour TankBehaviour { get => _tank; }
 
@@ -69,6 +70,9 @@ public class TankAgent : Agent, ITankController
     {
         var relativePos = _target.transform.position - transform.position;
         sensor.AddObservation(relativePos);
+
+        var highestPoint = _terrain.HighestPointBetween(transform.position, _target.position);
+        sensor.AddObservation(highestPoint - transform.position);
     }
 
     public override void OnEpisodeBegin()

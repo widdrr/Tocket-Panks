@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 6
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -128,4 +128,4 @@ MonoBehaviour:
   _tank: {fileID: 1057801461975136008}
   _target: {fileID: 0}
   _selfTag: 0
-  _outOfBoundsTag: 2
+  _terrain: {fileID: 0}

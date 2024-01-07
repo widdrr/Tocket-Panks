@@ -63,5 +63,6 @@ public class TankBehaviour : MonoBehaviour
         var force = explosion.ComputeKnockback(other.transform.position);
 
         other.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
+        other.GetComponent<Rigidbody2D>().totalTorque = 0;
     }
 }
