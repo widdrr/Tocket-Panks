@@ -5,6 +5,7 @@ public class TerrainGenerator : MonoBehaviour
 {
     [SerializeField] private int _terrainNodes;
     [SerializeField] private float _depthLevel;
+    [SerializeField] private float _smoothness;
     [SerializeField] private float _maxHeight;
     [SerializeField] private float _minHeight;
     [SerializeField] private float _leftBound;
@@ -25,12 +26,15 @@ public class TerrainGenerator : MonoBehaviour
 
     private void GenerateTerrain()
     {
+        float noiseSeed = Random.Range(-100000, 100000);
+
         _terrain.nodes.Add(new(_leftBound, _depthLevel, 0));
         _terrain.nodes.Add(new(_rightBound, _depthLevel, 0));
 
         for (int i = 0; i < _terrainNodes; i++)
         {
-            _terrain.nodes.Add(new(_rightBound - i * _nodeDistance, Random.Range(_minHeight, _maxHeight), 0));
+            float position = _rightBound - i * _nodeDistance;
+            _terrain.nodes.Add(new(position, Mathf.PerlinNoise1D((noiseSeed + position)/_smoothness).Map01To(_minHeight, _maxHeight), _maxHeight));
         }
 
         _terrain.UpdateTerrain();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using Unity.VisualScripting;
 
 //Credit Abdullah Aldandarawy for base Terrain Mesh updating later modified
 //Credit chaud_hary19 for base RMQ implementation later modified
@@ -34,6 +35,7 @@ public class Terrain2D : MonoBehaviour
 
         _nodeDistance = nodes[2].x - nodes[3].x;
         PreprocessRMQ();
+        Debug.Log(HighestPointBetween(_rightmostNode - new Vector3(0.01f,0,0), _rightmostNode));
     }
 
     private Vector2[] Vec3ToVec2Array(Vector3[] data)
@@ -74,9 +76,20 @@ public class Terrain2D : MonoBehaviour
 
     public Vector3 HighestPointBetween(Vector3 leftPosition, Vector3 rightPosition)
     {
+        if(leftPosition.x >= rightPosition.x)
+        {
+            (leftPosition, rightPosition) = (rightPosition, leftPosition);
+        }
+
         //nodes are stored in the node list in trigonometric order to prevent face culling, thus the indices are from right to left
+
         int leftIndex = Mathf.CeilToInt((_rightmostNode.x - rightPosition.x) / _nodeDistance);
         int rightIndex = Mathf.FloorToInt((_rightmostNode.x - leftPosition.x) / _nodeDistance);
+
+        if(Math.Abs(rightIndex - leftIndex) < 2)
+        {
+            return (leftPosition + rightPosition) / 2;
+        }
 
         // Find highest power of 2 that is smaller
         // than or equal to count of elements in given

@@ -136,12 +136,20 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1917075204842033073, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: _maxHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917075204842033073, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: _smoothness
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917075204842033073, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: _heightRange
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1917075204842033073, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: _terrainNodes
-      value: 20
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1957256852282899037, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_IsTrigger
@@ -206,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 6146416890564590306, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 02d381ae9803a9841bcdf1e08e620882, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Model
       value: 
@@ -300,6 +308,7 @@ MonoBehaviour:
   _tank: {fileID: 289114986}
   _target: {fileID: 748391460}
   _selfTag: 0
+  _terrain: {fileID: 331056092}
 --- !u!114 &289114989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +339,17 @@ MonoBehaviour:
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
+--- !u!114 &331056092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1229871770832334313, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+  m_PrefabInstance: {fileID: 63682358}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2baf0bb82e418046b14aa0f2353e3fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &748391460 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2742448823597091904, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}

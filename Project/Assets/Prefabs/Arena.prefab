@@ -315,10 +315,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c0496d68339d14c8807df205f46bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _terrainNodes: 0
-  _groundLevel: 1
+  _terrainNodes: 100
   _depthLevel: -1
-  _maxHeight: 3
+  _smoothness: 3
+  _maxHeight: 5
   _minHeight: 0
   _leftBound: -8.5
   _rightBound: 8.5
@@ -537,6 +537,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 41512049601044221}
     - target: {fileID: -1761950334230532106, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
+      propertyPath: _terrain
+      value: 
+      objectReference: {fileID: 1229871770832334313}
+    - target: {fileID: -1761950334230532106, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -556,6 +560,10 @@ PrefabInstance:
       propertyPath: m_InferenceDevice
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1057801461975136008, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: _angle
       value: 0
@@ -566,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -643,6 +651,10 @@ PrefabInstance:
       propertyPath: _selfTag
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1761950334230532106, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
+      propertyPath: _terrain
+      value: 
+      objectReference: {fileID: 1229871770832334313}
     - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: TeamId
       value: 0
@@ -654,6 +666,10 @@ PrefabInstance:
     - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_InferenceDevice
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1057801461975136008, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: _angle
@@ -697,7 +713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_LocalPosition.z
