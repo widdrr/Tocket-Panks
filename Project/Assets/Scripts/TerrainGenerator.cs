@@ -23,7 +23,6 @@ public class TerrainGenerator : MonoBehaviour
         GenerateTerrain();
     }
 
-
     private void GenerateTerrain()
     {
         float noiseSeed = Random.Range(-100000, 100000);
@@ -34,7 +33,7 @@ public class TerrainGenerator : MonoBehaviour
         for (int i = 0; i < _terrainNodes; i++)
         {
             float position = _rightBound - i * _nodeDistance;
-            _terrain.nodes.Add(new(position, Mathf.PerlinNoise1D((noiseSeed + position)/_smoothness).Map01To(_minHeight, _maxHeight), _maxHeight));
+            _terrain.nodes.Add(new(position, Mathf.PerlinNoise1D((noiseSeed + position) / _smoothness).Map01To(_minHeight, _maxHeight), _maxHeight));
         }
 
         _terrain.UpdateTerrain();
