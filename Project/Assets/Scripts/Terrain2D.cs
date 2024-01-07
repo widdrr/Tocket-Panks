@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
-using Unity.VisualScripting;
 
 //Credit Abdullah Aldandarawy for base Terrain Mesh updating later modified
 //Credit chaud_hary19 for base RMQ implementation later modified
@@ -19,23 +18,26 @@ public class Terrain2D : MonoBehaviour
     public void UpdateTerrain()
     {
         if (nodes.Count < 4) return;
-        Triangulator triangulator = new Triangulator(nodes.ToArray());
+        Triangulator triangulator = new(nodes.ToArray());
         int[] indecies = triangulator.Triangulate();
+
+        Mesh mesh = new()
+        {
+            vertices = nodes.ToArray(),
+            triangles = indecies,
+            uv = Vec3ToVec2Array(nodes.ToArray())
+        };
+
         MeshFilter meshFilter = GetComponent<MeshFilter>();
-        Mesh mesh = meshFilter.sharedMesh;
-        mesh.triangles = null;
-        mesh.vertices = nodes.ToArray();
-        mesh.triangles = indecies;
-        mesh.uv = Vec3ToVec2Array(nodes.ToArray());
+        meshFilter.sharedMesh = mesh;
 
         PolygonCollider2D collider = GetComponent<PolygonCollider2D>();
         collider.points = Vec3ToVec2Array(nodes.ToArray());
 
-        _rightmostNode = nodes[2];
+        _rightmostNode = transform.TransformPoint(nodes[2]);
 
-        _nodeDistance = nodes[2].x - nodes[3].x;
+        _nodeDistance = transform.TransformPoint(nodes[2]).x - transform.TransformPoint(nodes[3]).x;
         PreprocessRMQ();
-        Debug.Log(HighestPointBetween(_rightmostNode - new Vector3(0.01f,0,0), _rightmostNode));
     }
 
     private Vector2[] Vec3ToVec2Array(Vector3[] data)
@@ -76,7 +78,7 @@ public class Terrain2D : MonoBehaviour
 
     public Vector3 HighestPointBetween(Vector3 leftPosition, Vector3 rightPosition)
     {
-        if(leftPosition.x >= rightPosition.x)
+        if (leftPosition.x >= rightPosition.x)
         {
             (leftPosition, rightPosition) = (rightPosition, leftPosition);
         }
@@ -86,7 +88,7 @@ public class Terrain2D : MonoBehaviour
         int leftIndex = Mathf.CeilToInt((_rightmostNode.x - rightPosition.x) / _nodeDistance);
         int rightIndex = Mathf.FloorToInt((_rightmostNode.x - leftPosition.x) / _nodeDistance);
 
-        if(Math.Abs(rightIndex - leftIndex) < 2)
+        if (Math.Abs(rightIndex - leftIndex) < 2)
         {
             return (leftPosition + rightPosition) / 2;
         }

@@ -319,7 +319,7 @@ MonoBehaviour:
   _depthLevel: -1
   _smoothness: 3
   _maxHeight: 5
-  _minHeight: 0
+  _minHeight: -0.05
   _leftBound: -8.5
   _rightBound: 8.5
 --- !u!1 &5430565147270374690
@@ -574,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -713,7 +713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2370286311232609844, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: m_LocalPosition.z
