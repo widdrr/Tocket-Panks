@@ -159,6 +159,14 @@ PrefabInstance:
       propertyPath: m_UsedByEffector
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3539254916979377387, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_Size.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3539254916979377387, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_Offset.y
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 4637888917138205032, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -211,6 +219,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arena
       objectReference: {fileID: 0}
+    - target: {fileID: 5531144494583930571, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531144494583930571, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6146416890564590306, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Model
       value: 
@@ -260,7 +276,8 @@ PrefabInstance:
     - {fileID: 8711894272527511843, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
     - {fileID: 7018750043087846786, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
     - {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 0}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4462340519651779416, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
