@@ -3,7 +3,9 @@ using System.Net;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TankAgent : Agent, ITankController
 {
@@ -18,7 +20,7 @@ public class TankAgent : Agent, ITankController
     {
         _tank.OnOutOfBounds += _ =>
         {
-            SetReward(-1);
+            //SetReward(-1);
             EndEpisode();
         };
 
@@ -101,6 +103,8 @@ public class TankAgent : Agent, ITankController
         //    SetReward(-1);
         //}
         //EndEpisode();
+
+        SceneManager.LoadScene("Train");
     }
 
     public void GameStart()
