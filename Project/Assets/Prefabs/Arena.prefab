@@ -439,6 +439,7 @@ MonoBehaviour:
   _player2: {fileID: 1977418192758387173}
   _rounds: 10
   _currentTurn: 0
+  _terrainGenerator: {fileID: 1917075204842033073}
   _state: 0
   player1Score: 0
   player2Score: 0
@@ -470,6 +471,10 @@ PrefabInstance:
       propertyPath: _episodeLength
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: -1761950334230532106, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
+      propertyPath: _terrainGenerator
+      value: 
+      objectReference: {fileID: 1917075204842033073}
     - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: TeamId
       value: 0
@@ -577,6 +582,10 @@ PrefabInstance:
       propertyPath: _terrain
       value: 
       objectReference: {fileID: 1229871770832334313}
+    - target: {fileID: -1761950334230532106, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
+      propertyPath: _terrainGenerator
+      value: 
+      objectReference: {fileID: 1917075204842033073}
     - target: {fileID: -775747567476278741, guid: d8575a3f45de33747873b6505068f6d2, type: 3}
       propertyPath: TeamId
       value: 0
