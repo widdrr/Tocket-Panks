@@ -23,10 +23,11 @@ public class TerrainGenerator : MonoBehaviour
         GenerateTerrain();
     }
 
-    private void GenerateTerrain()
+    public void GenerateTerrain()
     {
         float noiseSeed = Random.Range(-100000, 100000);
 
+        _terrain.nodes.Clear();
         _terrain.nodes.Add(new(_leftBound, _depthLevel, 0));
         _terrain.nodes.Add(new(_rightBound, _depthLevel, 0));
 

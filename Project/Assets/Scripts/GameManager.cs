@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _rounds;
     public int _currentTurn = 0;
 
+    [SerializeField] private TerrainGenerator _terrainGenerator;
+
     public GameState _state;
 
     private GameState _nextTurn;
@@ -126,6 +128,10 @@ public class GameManager : MonoBehaviour
 
         _player1Score.ResetScore();
         _player2Score.ResetScore();
+
+        _terrainGenerator.GenerateTerrain();
+        _player1.transform.localPosition = new Vector2(-8, 0);
+        _player2.transform.localPosition = new Vector2(8, 0);
 
         GameStart();
     }

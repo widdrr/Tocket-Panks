@@ -19,12 +19,12 @@ public class Terrain2D : MonoBehaviour
     {
         if (nodes.Count < 4) return;
         Triangulator triangulator = new(nodes.ToArray());
-        int[] indecies = triangulator.Triangulate();
+        int[] indices = triangulator.Triangulate();
 
         Mesh mesh = new()
         {
             vertices = nodes.ToArray(),
-            triangles = indecies,
+            triangles = indices,
             uv = Vec3ToVec2Array(nodes.ToArray())
         };
 

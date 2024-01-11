@@ -209,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5150511060914169363, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: _rounds
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5402095257704095202, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_TagString
@@ -326,6 +326,7 @@ MonoBehaviour:
   _target: {fileID: 748391460}
   _selfTag: 0
   _terrain: {fileID: 331056092}
+  _terrainGenerator: {fileID: 381617397}
 --- !u!114 &289114989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +366,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2baf0bb82e418046b14aa0f2353e3fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &381617397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1917075204842033073, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+  m_PrefabInstance: {fileID: 63682358}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c0496d68339d14c8807df205f46bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &748391460 stripped

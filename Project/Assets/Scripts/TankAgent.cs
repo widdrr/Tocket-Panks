@@ -1,9 +1,6 @@
-using System;
-using System.Net;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -104,7 +101,6 @@ public class TankAgent : Agent, ITankController
         //}
         //EndEpisode();
 
-        SceneManager.LoadScene("Train");
     }
 
     public void GameStart()
