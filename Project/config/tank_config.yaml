@@ -2,32 +2,32 @@ behaviors:
   Tank:
     trainer_type: ppo
     hyperparameters:
-      batch_size: 128
-      buffer_size: 1600
-      learning_rate: 1.0e-2
+      batch_size: 512
+      buffer_size: 5120
+      learning_rate: 0.0003
       beta: 6.0e-3
       epsilon: 0.2
       lambd: 0.95
-      num_epoch: 6
+      num_epoch: 10
       learning_rate_schedule: linear
       beta_schedule: constant
       epsilon_schedule: linear
     network_settings:
       normalize: false
       hidden_units: 32
-      num_layers: 2
+      num_layers: 4
     reward_signals:
       extrinsic:
-        gamma: 0
+        gamma: 0.99
         strength: 1.0
-    max_steps: 500000
-    time_horizon: 64
-    summary_freq: 1600
+    max_steps: 5000000
+    time_horizon: 128
+    summary_freq: 5120
 engine_settings:
   width: 30
   height: 30
   quality_level: 10
-  time_scale: 1000
+  time_scale: 10000
   target_frame_rate: -1
   capture_frame_rate: 60
   no_graphics: true
