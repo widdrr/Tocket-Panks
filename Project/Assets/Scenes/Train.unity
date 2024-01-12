@@ -538,7 +538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5150511060914169363, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: _rounds
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5430565147270374690, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Name
@@ -551,11 +551,11 @@ PrefabInstance:
     - target: {fileID: 6146416890564590306, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: cb68ce10f3a71e6428c47e821aa4d348, type: 3}
     - target: {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: e5aaf1959a2365746b09ed50d4f2d53f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

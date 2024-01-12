@@ -392,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5150511060914169363, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: _rounds
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5430565147270374690, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Name
