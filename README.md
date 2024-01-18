@@ -6,7 +6,7 @@
 - Ancuța **Andrei**
 - Bălănică **Andrei**
 - Lefter **Andrei**
-- TavĂ **Andrei**-Daniel
+- Tavă **Andrei**-Daniel
 - Puținelu Bogdan-**Andrei** ✝
 
 ## [Documentation](https://github.com/widdrr/Tocket-Panks/wiki)
