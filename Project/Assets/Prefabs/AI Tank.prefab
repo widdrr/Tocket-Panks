@@ -95,11 +95,11 @@ MonoBehaviour:
     VectorObservationSize: 6
     NumStackedVectorObservations: 1
     m_ActionSpec:
-      m_NumContinuousActions: 0
-      BranchSizes: 6801000064000000
-    VectorActionSize: 6801000064000000
+      m_NumContinuousActions: 2
+      BranchSizes: 
+    VectorActionSize: 02000000
     VectorActionDescriptions: []
-    VectorActionSpaceType: 0
+    VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
@@ -129,3 +129,4 @@ MonoBehaviour:
   _target: {fileID: 0}
   _selfTag: 0
   _terrain: {fileID: 0}
+  _actionType: 1

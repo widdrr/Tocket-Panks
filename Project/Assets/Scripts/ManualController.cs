@@ -11,22 +11,22 @@ public class ManualController : MonoBehaviour, ITankController
     {
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            _tank.Angle -= 1;
+            _tank.Angle -= 0.5f;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            _tank.Angle += 1;
+            _tank.Angle += 0.5f;
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            _tank.Power -= 1;
+            _tank.Power -= 0.5f;
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            _tank.Power += 1;
+            _tank.Power += 0.5f;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

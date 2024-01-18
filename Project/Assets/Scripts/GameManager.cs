@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public GameState _state;
 
     private GameState _nextTurn;
+    private bool _firstTurn;
 
     public int player1Score;
     public int player2Score;
@@ -63,10 +64,12 @@ public class GameManager : MonoBehaviour
 
         if(_state == GameState.AfterEffects)
         {
-            if(TankIsStationary(_player1Rigidbody) && TankIsStationary(_player2Rigidbody))
+            if(!_firstTurn && TankIsStationary(_player1Rigidbody) && TankIsStationary(_player2Rigidbody))
             {
                 ChangeState();
             }
+
+            _firstTurn = false;
         }
     }
 
@@ -92,7 +95,7 @@ public class GameManager : MonoBehaviour
 
             case GameState.AfterEffects:
                 ++_currentTurn;
-                if (_currentTurn == 2 * _rounds)
+                if (_currentTurn == 2 * _rounds + 1)
                 {
                     _state = GameState.Over;
                     GameEnd();
@@ -115,16 +118,21 @@ public class GameManager : MonoBehaviour
 
     private void GameStart()
     {
-        _state = GameState.Player1Turn;
-        _currentTurn = 0;
-        _player1Controller.StartTurn();
+        _player1Controller.EndTurn();
         _player2Controller.EndTurn();
+        _state = GameState.AfterEffects;
+        _nextTurn = GameState.Player1Turn;
+        _firstTurn = true;
+        _currentTurn = 0;
     }
 
     private void GameEnd()
     {
         _player1Controller.GameEnd(_player1Score.Score, _player2Score.Score);
         _player2Controller.GameEnd(_player2Score.Score, _player1Score.Score);
+
+        Debug.Log($"Player 1: {_player1Score.Score}");
+        Debug.Log($"Player 2: {_player2Score.Score}");
 
         _player1Score.ResetScore();
         _player2Score.ResetScore();
