@@ -129,3 +129,4 @@ MonoBehaviour:
   _target: {fileID: 0}
   _selfTag: 0
   _terrain: {fileID: 0}
+  _actionType: 1

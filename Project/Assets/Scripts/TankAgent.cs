@@ -4,12 +4,19 @@ using Unity.MLAgents.Sensors;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum ActionType
+{
+    Discrete,
+    Continuous
+}
+
 public class TankAgent : Agent, ITankController
 {
     [SerializeField] private TankBehaviour _tank;
     [SerializeField] private Transform _target;
     [SerializeField] private Tags _selfTag;
     [SerializeField] private Terrain2D _terrain;
+    [SerializeField] private ActionType _actionType;
 
     public TankBehaviour TankBehaviour { get => _tank; }
 
@@ -59,8 +66,16 @@ public class TankAgent : Agent, ITankController
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        _tank.Angle = actions.ContinuousActions[0] * 180f + 180f;
-        _tank.Power = actions.ContinuousActions[1] * 50f + 50f;
+        if (_actionType == ActionType.Continuous)
+        {
+            _tank.Angle = actions.ContinuousActions[0] * 180f + 180f;
+            _tank.Power = actions.ContinuousActions[1] * 50f + 50f;
+        }
+        else
+        {
+            _tank.Angle = actions.DiscreteActions[0];
+            _tank.Power = actions.DiscreteActions[1];
+        }
 
         _tank.Shoot();
     }
