@@ -405,11 +405,47 @@ PrefabInstance:
     - target: {fileID: 6146416890564590306, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: b86e08b2e8a56f0499362c90050be77f, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 4d44676157eeffd43b9d21f7fbf430fd, type: 3}
+    - target: {fileID: 7018750043087846786, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: _actionType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: b86e08b2e8a56f0499362c90050be77f, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: 91eb7cade498bfd48b12b57b927681b1, type: 3}
+    - target: {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSpaceType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[1]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.data[0]
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345220451785451615, guid: 1568146eb9384a04fa954ddce552afb2, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.data[1]
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
